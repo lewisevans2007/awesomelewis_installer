@@ -133,7 +133,11 @@ def main():
 if __name__ == "__main__":
     pylog.message("app_data/log/system.log","---------------- START ----------------")
     for i in sys.argv:
+<<<<<<< HEAD
         if i == "-v" or i == "--verbose":
+=======
+        if i == "-v" or i == "--version":
+>>>>>>> e8a926949906654919a28114f3d75dbfae41977e
             verbose = True
     logger.info("Checking system info check")
     sys_check()
