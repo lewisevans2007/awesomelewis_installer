@@ -133,7 +133,7 @@ def main():
 if __name__ == "__main__":
     pylog.message("app_data/log/system.log","---------------- START ----------------")
     for i in sys.argv:
-        if i == "-v":
+        if i == "-v" or i == "--version":
             verbose = True
     logger.info("Checking system info check")
     sys_check()
