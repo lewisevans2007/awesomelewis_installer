@@ -26,7 +26,7 @@ verbose = False
 class logger:
     def error(msg ,file="app_data/log/system.log"):
         if verbose:
-            print("[ X ] ERROR:"+msg)
+            print(bcolors.FAIL+"[ X ] ERROR:"+msg+bcolors.ENDC)
         pylog.error(file,msg)
     def info(msg,file="app_data/log/system.log"):
         if verbose:
@@ -34,7 +34,7 @@ class logger:
         pylog.info(file,msg)
     def warning(msg ,file="app_data/log/system.log"):
         if verbose:
-            print("[ ! ] WARNING:"+msg)
+            print(bcolors.WARNING+"[ ! ] WARNING:"+msg+bcolors.ENDC)
         pylog.warn(file,msg)
 
 def sys_check():
@@ -148,7 +148,7 @@ if __name__ == "__main__":
         os.mkdir("tmp")
         logger.info("Created tmp folder")
     except FileExistsError:
-        logger.info("Attempted to create tmp folder but it was already there")   
+        logger.info("Attempted to create tmp folder but it was already there")  
     logger.info("Checking system info check")
     sys_check()
     logger.info("Staring main process")
