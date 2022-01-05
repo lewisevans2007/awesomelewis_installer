@@ -5,10 +5,6 @@ def install(name):
     import os
     from main import logger
     try:
-        os.mkdir("tmp")
-    except FileExistsError:
-        pass
-    try:
         username = os.getlogin()
     except:
         logger.error("Cant get the username for some reason")

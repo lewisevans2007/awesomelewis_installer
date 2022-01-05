@@ -144,6 +144,11 @@ if __name__ == "__main__":
     for i in sys.argv:
         if i == "-v" or i == "--verbose":
             verbose = True
+    try:
+        os.mkdir("tmp")
+        logger.info("Created tmp folder")
+    except FileExistsError:
+        logger.info("Attempted to create tmp folder but it was already there")   
     logger.info("Checking system info check")
     sys_check()
     logger.info("Staring main process")
