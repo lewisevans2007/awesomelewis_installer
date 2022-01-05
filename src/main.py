@@ -4,6 +4,7 @@ import sys
 import platform
 import os
 import requests
+import shutil
 
 from modules import pylog
 from modules.installer import pypi as pypiinstaller
@@ -65,7 +66,8 @@ def sys_check():
 def more_options():
     print("More options")
     print("1) Uninstall a python module using pip")
-    print("2) Exit")
+    print("2) Clear cache")
+    print("3) Exit")
     continue_loop = True
     while continue_loop == True:
         menu = input("Enter option>")
@@ -81,10 +83,17 @@ def more_options():
             del cmd
             exit()
         if menu == "2":
+            try:
+                shutil.rmtree('tmp')
+                exit()
+            except FileNotFoundError:
+                print("There is no cache found nothing was changed")
+                exit()
+        if menu == "3":
             logger.info("Quiting app")
             exit()
         else:
-            print("Please enter a number 1 or 2")
+            print("Please enter a number 1,2 or 3")
 def main():
     print("welcome to awesomelewis's project installer please chose an option")
     print("1) Install an module from github or from the python package index")

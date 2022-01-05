@@ -5,12 +5,16 @@ def install(name):
     import os
     from main import logger
     try:
+        os.mkdir("tmp")
+    except FileExistsError:
+        pass
+    try:
         username = os.getlogin()
     except:
         logger.error("Cant get the username for some reason")
     tag = tag_finder.get(name)
-    logger.info("Downloading file")
-    print("Downloading please wait")
+    logger.info("Downloading file :https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip")
+    print("Downloading "+name+" with the tag "+tag)
     urllib.request.urlretrieve("https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip", "tmp/"+name+"-"+tag+".zip")
     logger.info("Extracting file")
     with zipfile.ZipFile("tmp/"+name+"-"+tag+".zip", 'r') as zip_ref:
