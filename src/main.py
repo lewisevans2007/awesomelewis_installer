@@ -7,6 +7,22 @@ import requests
 import shutil
 from colorama import Fore, Back, Style
 
+try:
+    import tqdm
+except ModuleNotFoundError:
+    print("It looks like some modules are missing for the installer to run\n")
+    ask = input("Do  you want to intall and reload the installer? (Y or N)")
+    if ask.upper() == "Y" or ask.upper() == "YES" or ask.upper() == "YE" or ask.upper() == "OK":
+        os.system("pip install tqdm")
+        if platform.system() == "Windows":
+            os.system("reload.cmd")
+            exit()
+        else:
+            os.system("./reload.sh")
+            exit()
+    else:
+        print("The installer cannot continue without the required modules\nNow exiting")
+        exit()
 from modules import pylog
 from modules.installer import pypi as pypiinstaller
 from modules.installer import github as githubinstaller
