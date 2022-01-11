@@ -10,8 +10,8 @@ def install(name):
         logger.error("Cant get the username for some reason")
     tag = tag_finder.get(name)
     if os.path.exists("tmp/"+name+"-"+tag+".zip"):
-        print("A cache file was found for the current version of"+name)
-        print("Version:"+tag)
+        print("A cache file was found for the current version of "+name)
+        print("Version: "+tag)
         ask = input("Do you want to use this file rather than downloading again? (Y or N):")
         if ask.upper() == "Y" or ask.upper() == "YES" or ask.upper() == "YE" or ask.upper() == "OK":
             with zipfile.ZipFile("tmp/"+name+"-"+tag+".zip", 'r') as zip_ref:

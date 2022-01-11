@@ -5,19 +5,13 @@ import platform
 import os
 import requests
 import shutil
+from colorama import Fore, Back, Style
 
 from modules import pylog
 from modules.installer import pypi as pypiinstaller
 from modules.installer import github as githubinstaller
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
+
 import module_checker
 
 
@@ -26,7 +20,7 @@ verbose = False
 class logger:
     def error(msg ,file="app_data/log/system.log"):
         if verbose:
-            print(bcolors.FAIL+"[ X ] ERROR:"+msg+bcolors.ENDC)
+            print(Fore.RED+"[ X ] ERROR:"+msg+Style.RESET_ALL)
         pylog.error(file,msg)
     def info(msg,file="app_data/log/system.log"):
         if verbose:
@@ -34,7 +28,7 @@ class logger:
         pylog.info(file,msg)
     def warning(msg ,file="app_data/log/system.log"):
         if verbose:
-            print(bcolors.WARNING+"[ ! ] WARNING:"+msg+bcolors.ENDC)
+            print(Fore.YELLOW+"[ ! ] WARNING:"+msg+Style.RESET_ALL)
         pylog.warn(file,msg)
 
 def sys_check():
@@ -107,10 +101,10 @@ def main():
             pypi, github = module_checker.get_avaible_modules()
             print("GitHub:")
             for i in github:
-                print(bcolors.OKGREEN+"\t"+i+bcolors.ENDC)
+                print(Fore.GREEN+"\t"+i+Style.RESET_ALL)
             print("PyPi:")
             for i in pypi:
-                print(bcolors.OKGREEN+"\t"+i+bcolors.ENDC)      
+                print(Fore.GREEN+"\t"+i+Style.RESET_ALL)      
             print("All github packages will install to the desktop and all pypi \npackages will install to your python installation")     
             print("\nEnter witch item you want to install")
             found = False
