@@ -1,3 +1,10 @@
+from tqdm import tqdm
+class DownloadProgressBar(tqdm):
+    def update_to(self, b=1, bsize=1, tsize=None):
+        if tsize is not None:
+            self.total = tsize
+        self.update(b * bsize - self.n)
+
 def install(name):
     import urllib
     import tag_finder
@@ -27,7 +34,8 @@ def install(name):
             pass
     logger.info("Downloading file :https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip")
     print("Downloading "+name+" with the tag "+tag)
-    urllib.request.urlretrieve("https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip", "tmp/"+name+"-"+tag+".zip")
+    with DownloadProgressBar(unit='B', unit_scale=True,miniters=1, desc=name+" "+tag) as t:
+        urllib.request.urlretrieve("https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip", filename="tmp/"+name+"-"+tag+".zip", reporthook=t.update_to)
     logger.info("Extracting file")
     with zipfile.ZipFile("tmp/"+name+"-"+tag+".zip", 'r') as zip_ref:
             with open('app_data/system_os.txt', 'r') as f:
