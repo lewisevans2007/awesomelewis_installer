@@ -2,4 +2,4 @@ def install(name):
     import os
     if name.upper() == "PYKEYGEN":
         name = "pykeygenerator"
-    os.system("pip install "+name)
+    os.system("pip install "+name+" --upgrade")
