@@ -1,0 +1,15 @@
+{
+    "name": "awesomelewis_installer",
+    "description": "A simple installer for my projects",
+    "version": "1.0",
+    "main_file": "src/main.py",
+    "author": "Lewis Evans",
+    "license": "GNU General Public License v3.0",
+    "url": "https://github.com/awesomelewis2007/awesomelewis_installer",
+    "email": "none",
+    "languages": [
+        "python",
+        "shell"
+    ],
+    "actions": {}
+}
