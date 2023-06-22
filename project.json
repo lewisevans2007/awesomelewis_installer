@@ -1,7 +1,7 @@
 {
     "name": "awesomelewis_installer",
     "description": "A simple installer for my projects",
-    "version": "1.0",
+    "version": "",
     "main_file": "src/main.py",
     "author": "Lewis Evans",
     "license": "GNU General Public License v3.0",
