@@ -32,10 +32,10 @@ def install(name):
             return "Done"
         else:
             pass
-    logger.info("Downloading file :https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip")
+    logger.info("Downloading file :https://github.com/lewisevans2007/"+name+"/archive/refs/tags/"+tag+".zip")
     print("Downloading "+name+" with the tag "+tag)
     with DownloadProgressBar(unit='B', unit_scale=True,miniters=1, desc=name+" "+tag) as t:
-        urllib.request.urlretrieve("https://github.com/awesomelewis2007/"+name+"/archive/refs/tags/"+tag+".zip", filename="tmp/"+name+"-"+tag+".zip", reporthook=t.update_to)
+        urllib.request.urlretrieve("https://github.com/lewisevans2007/"+name+"/archive/refs/tags/"+tag+".zip", filename="tmp/"+name+"-"+tag+".zip", reporthook=t.update_to)
     logger.info("Extracting file")
     with zipfile.ZipFile("tmp/"+name+"-"+tag+".zip", 'r') as zip_ref:
             with open('app_data/system_os.txt', 'r') as f:

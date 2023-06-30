@@ -4,7 +4,7 @@ The new python logger
 
 This project is licenced under the GNU GENERAL PUBLIC LICENSE
 
-For more info visit: https://github.com/awesomelewis2007/pylog
+For more info visit: https://github.com/lewisevans2007/pylog
 """
 import datetime
 def log(location,msg,log_time=True,file=False):
