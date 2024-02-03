@@ -133,3 +133,5 @@ dmypy.json
 *.zip
 *idea/
 *vs/
+
+.DS_Store
